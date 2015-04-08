@@ -6,6 +6,7 @@ package com.twitter.poruke;
  * 
  */
 public class TwitterPoruka {
+	
 	/**
 	 * Predstavlja ime korisnika/username
 	 */
@@ -59,5 +60,15 @@ public class TwitterPoruka {
 	 */
 	public String toString(){
 		return "KORISNIK:"+korisnik+" PORUKA:"+poruka;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof TwitterPoruka))
+			return false;
+		TwitterPoruka tp = (TwitterPoruka) obj;
+		if(tp.getKorisnik().equals(this.korisnik) && tp.getPoruka().equals(this.poruka))
+			return true;
+		return false;
 	}
 }
